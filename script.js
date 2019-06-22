@@ -9,49 +9,54 @@ let elem  = document.querySelector(".block");
 let mainInput = document.querySelector('.inp');
 let mainButton = document.querySelector('.but');
 
-mainButton.addEventListener('click', function () {
-    let y = mainInput.value;
-    let div1 = document.createElement("div");
-    let p1 = document.createElement("p");
-    let btn = document.createElement("button");
-    // div1.insertBefore(btn,div1.children[0]);
-    function divAppendChildAndClass() {
-        div1.classList.add("d1");
-        let allDiv= document.querySelectorAll(".d1");
-        div1.appendChild(btn);
-        div1.appendChild(p1);
-        p1.innerHTML=y;
-        elem.appendChild(div1);
-        let allDivLenght = allDiv.length;
-        let pInDiv1 = div1.querySelector('p');
-        pInDiv1.innerHTML= pInDiv1.innerHTML+ ""+allDivLenght;
-        for (let i = 0; i<allDivLenght; i++) {
-       
-        }
+// let allDivLenght = allDiv.length;
+// let p1;
+// let btn;
+// let inpVal;
+// let allDiv;
+// let div1;
+
+
+// let allDiv= document.querySelectorAll(".d1");
+
+
+// let pInDiv1 = div1.querySelector('p');
+
+//
+function getDivValue() {
+    let allNumb= document.querySelectorAll(".numb");
+    for (let i=0; i<allNumb.length; i++) {
+        allNumb[i].innerHTML= i+1;
+        // return p1.innerHTML=p1.innerHTML+ "5555";
     }
-    divAppendChildAndClass();
-    let smallButton = div1.querySelector('button');
-    smallButton.classList.add("btn2");
-    smallButton.addEventListener('click', function () {
-        elem.removeChild(div1);
-        
+}
+
+mainButton.addEventListener('click', function () {
+    let newDiv = document.createElement("div");
+    let newP = document.createElement("p");
+    let newNumber = document.createElement("p");
+    newNumber.className = "numb";
+    newP.innerHTML=mainInput.value;
+    let btn = document.createElement("button");
+    btn.innerHTML = "delete";
+
+    elem.appendChild(newDiv);
+    newDiv.appendChild(newP);
+    newDiv.appendChild(newNumber);
+    newDiv.appendChild(btn);
+    getDivValue();
+
+    btn.addEventListener('click', function () {
+        elem.removeChild(newDiv);
+        getDivValue();
     })
-    
-    // if (div1.contains(p1)) {
-    //     if(p1) {
-    //         let arr = (p1.split(''));
-    //         console.log(arr);
-    //     }
 
-
-    // }
-
-
-    
-    // console.log(btnn);
-    // elem.insertBefore(h1,elem.children[0]);
-    // fafa.removeChild(gaga);
 });
+
+
+
+
+
 
 
 
@@ -68,3 +73,16 @@ mainButton.addEventListener('click', function () {
 //     }
 //     console.log(arr2);
 // }
+
+// if (div1.contains(p1)) {
+//     if(p1) {
+//         let arr = (p1.split(''));
+//         console.log(arr);
+//     }
+
+
+// }
+
+// let y = mainInput.value;
+
+// div1.insertBefore(btn,div1.children[0]);
