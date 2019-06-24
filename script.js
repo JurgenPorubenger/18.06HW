@@ -56,49 +56,49 @@ let mainInput2 = document.querySelector('.inp2');
 let plusButton = document.querySelector('.plus');
 let minusButton = document.querySelector('.minus');
 let divisButton = document.querySelector('.division');
-let multButton = document.querySelector('.multiply');
+let multButton = document.querySelector('.multipl');
 
-let plusFunc = function() {
-    return  this.inp1+this.inp2;
-};
-let minusFunc = function() {
-    return  this.inp1-this.inp2;
-};
-let divisFunc = function() {
-    return  this.inp1/this.inp2;
-};
-let multFunc = function() {
-    return  this.inp1*this.inp2;
-};
+
+
 let obj = {
-    inp1 : Number(mainInput1.value),
-    inp2 : Number(mainInput2.value),
-    ggg: 'ijij',
+    inp1 : mainInput1,
+    inp2 : mainInput2,
     plus : plusFunc,
     minus : minusFunc,
     division : divisFunc,
     multipl : multFunc,
 };
 
+function plusFunc() {
+    return  Number(this.inp1.value)+Number(this.inp2.value);
+};
+ function minusFunc() {
+    return  Number(this.inp1.value)-Number(this.inp2.value);
+};
+function divisFunc() {
+    return  Number(this.inp1.value)/Number(this.inp2.value);
+};
+function multFunc() {
+    return  Number(this.inp1.value)*Number(this.inp2.value);
+};
+
 plusButton.addEventListener('click', function() {
-    
-    // result.value = obj.plus();
-    console.log(obj.inp1);
-    // mainInput1.value = obj.plus();
-    // mainInput2.value = '';
+    result.value = obj.plus();
+    mainInput1.value = obj.plus();
+    mainInput2.value = '';
 });
-// minusButton.addEventListener('click', function() {
-//     result.value = obj.minus();
-//     mainInput1.value = obj.minus();
-//     mainInput2.value = '';
-// });
-// divisButton.addEventListener('click', function() {
-//     result.value = obj.division();
-//     mainInput1.value = obj.division();
-//     mainInput2.value = '';
-// });
-// multButton.addEventListener('click', function() {
-//     result.value = obj.multipl();
-//     mainInput1.value = obj.multipl();
-//     mainInput2.value = '';
-// });
+minusButton.addEventListener('click', function() {
+    result.value = obj.minus();
+    mainInput1.value = obj.minus();
+    mainInput2.value = '';
+});
+divisButton.addEventListener('click', function() {
+    result.value = obj.division();
+    mainInput1.value = obj.division();
+    mainInput2.value = '';
+});
+multButton.addEventListener('click', function() {
+    result.value = obj.multipl();
+    mainInput1.value = obj.multipl();
+    mainInput2.value = '';
+});
